@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js" ></script>
+<script>
+$(document).ready(function(){
+/* 	var obj = '${result}'; 
+	var jsonresult = JSON.parse(obj); 
+	$("div").html("사람수 : " + jsonresult.info.faceCount);
+	
+	for(var i = 0; i<jsonresult.info.faceCount; i++){
+		
+		$("h2").append(jsonresult.faces[i].celebrity.value +"("+ parseInt(jsonresult.faces[i].celebrity.confidence *100) + "% 일치)" +"<br>");
+	}
+	
+ */	
+	
+	
+});
+</script>
+
+
+
+</head>
+<body>
+
+<h1>${result}</h1>
+
+<div>
+여기표시
+</div>
+
+<h2></h2>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+
+
+</head>
+<body>
+CAVAS
+
+<canvas id="mycanvas" width=500 height=500 style="border:2px solid blue">
+</canvas>
+
+
+</body>
+</html>

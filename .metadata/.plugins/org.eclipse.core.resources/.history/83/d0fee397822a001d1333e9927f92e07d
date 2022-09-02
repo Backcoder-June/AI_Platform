@@ -1,0 +1,44 @@
+package cfr;
+
+import java.io.File;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.naverai.NaverService;
+import com.example.naverai.Ninf;
+@Controller
+public class FaceController {
+
+	@Autowired
+	NaverService faceService;
+	NaverService faceService2; 
+	
+	@GetMapping("/face")
+	public String faceinput(Model model) {
+		
+		File f = new File(Ninf.path);
+		String[] filenames = f.list();
+		
+		System.out.println(filenames);
+		model.addAttribute("filenames", filenames);
+		return "cfr/faceinput"; 
+	}
+
+	@GetMapping("/faceresult")
+	public String faceresult(String image, Model model) {
+
+		String result = faceService.test(image);
+		
+		model.addAttribute("result", result);
+		
+		return "cfr/faceresult";
+	}
+
+
+
+
+
+}

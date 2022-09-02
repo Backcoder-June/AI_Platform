@@ -1,0 +1,13 @@
+package com.example.naverai;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class NaveraiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(NaveraiApplication.class, args);
+	}
+
+}

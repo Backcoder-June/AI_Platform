@@ -1,0 +1,22 @@
+package cfr;
+
+import org.springframework.stereotype.Service;
+
+import com.example.naverai.NaverService;
+
+@Service
+public class FaceService implements NaverService{
+
+	@Override
+	public String test(String image) {
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+
+	
+}

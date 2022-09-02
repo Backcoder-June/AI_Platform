@@ -1,0 +1,15 @@
+package cfr;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class FaceController {
+
+	@GetMapping("/face")
+	public String faceinput(Model model) {
+		
+		
+		
+		return "cfr/faceinput"; 
+	}
+}

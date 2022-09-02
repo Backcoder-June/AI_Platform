@@ -1,0 +1,26 @@
+package cfr;
+
+import java.io.File;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.naverai.Ninf;
+@Controller
+public class FaceController {
+
+	@GetMapping("/face")
+	public String faceinput(Model model) {
+		
+		File f = new File(Ninf.path);
+		String[] filenames = f.list();
+		
+		
+		System.out.println(filenames);
+		model.addAttribute("filenames", filenames);
+		
+		
+		return "cfr/faceinput"; 
+	}
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="naverai">
+        <property name="context-root" value="naverai"/>
+        <property name="java-output-path" value="/naverai/target/classes"/>
+    </wb-module>
+</project-modules>
