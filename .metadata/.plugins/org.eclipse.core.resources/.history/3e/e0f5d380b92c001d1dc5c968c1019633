@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js" ></script>
+<script>
+$(document).ready(function(){
+	let poseresult = '${poseresult}';
+	let jsonresult = JSON.parse(poseresult); 
+	
+	for(int i =0; i < 18; i++){
+	$("#here").append(jsonresult.predictions[0][i].score); 
+	$("#here").append(jsonresult.predictions[0][i].x);
+	$("#here").append(jsonresult.predictions[0][i].y); <br>
+	}
+
+});
+</script>
+
+
+
+</head>
+<body>
+
+<div id="here">여기</div>
+<img src="http://localhost:8083/naverai/${param.image}">
+<hr>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+package tts;
+
+import java.io.File;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.naverai.Ninf;
+
+@Controller
+public class TtsController {
+	
+	@Autowired
+	TtsService ttsService; 
+		
+	@GetMapping("/ttsinput")
+	public String poseinput(Model model) {
+		
+		File f = new File(Ninf.path);
+		String[] fileList = f.list();
+		
+		model.addAttribute("filelist", fileList);
+		
+		return "tts/ttsinput"; 
+	}
+
+	@GetMapping("/ttsresult")
+	public String ttsresult(String image, String speaker, Model model) {
+	
+		String ttsresult = null;
+		if(speaker == null) {
+			ttsresult = ttsService.test(image);
+		}else {
+			ttsresult = ttsService.test(image, speaker); 
+		}
+		model.addAttribute("ttsresult", ttsresult);
+		
+		return "tts/ttsresult";
+	}
+
+
+
+
+
+
+}

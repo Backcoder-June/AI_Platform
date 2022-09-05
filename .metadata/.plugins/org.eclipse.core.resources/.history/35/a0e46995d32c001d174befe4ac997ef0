@@ -1,0 +1,17 @@
+package com.example.naverai;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@ComponentScan(basePackages = "pose")
+@ComponentScan(basePackages = "cfr")
+@ComponentScan
+@SpringBootApplication
+public class NaveraiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(NaveraiApplication.class, args);
+	}
+
+}

@@ -1,0 +1,42 @@
+package object;
+
+import java.io.File;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.naverai.Ninf;
+
+@Controller
+public class ObjController {
+	
+	@Autowired
+	PoseService poseService; 
+		
+	@GetMapping("/poseinput")
+	public String poseinput(Model model) {
+		
+		File f = new File(Ninf.path);
+		String[] fileList = f.list();
+		
+		model.addAttribute("filelist", fileList);
+		
+		return "pose/poseinput"; 
+	}
+
+	@GetMapping("/poseresult")
+	public String poseresult(String image, Model model) {
+		
+		model.addAttribute("poseresult", poseService.test(image));
+		
+		return "pose/poseresult2";
+	}
+
+
+
+
+
+
+}

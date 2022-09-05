@@ -1,0 +1,7 @@
+package com.example.naverai;
+
+public class Ninf {
+	public final static String id = "65ljv8wyb1";
+	public final static String key = "8wh5WxMlJ8c2Ps9CQPWSlSIOumS94MJuP9ohp29m";
+	public final static String path = "C:/Users/skyst/Desktop/수업자료/ai_images/";
+}

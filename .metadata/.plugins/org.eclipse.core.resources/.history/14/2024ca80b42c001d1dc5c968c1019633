@@ -1,0 +1,24 @@
+package pose;
+
+import java.io.File;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.naverai.Ninf;
+
+@Controller
+public class PoseController {
+		
+	@GetMapping("/poseinput")
+	public String poseinput(Model model) {
+		
+		File f = new File(Ninf.path);
+		String[] fileList = f.list();
+		
+		model.addAttribute("filelist", fileList);
+		
+		return "pose/poseinput"; 
+	}
+}

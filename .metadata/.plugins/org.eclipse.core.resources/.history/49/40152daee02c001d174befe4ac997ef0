@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js" ></script>
+<script>
+$(document).ready(function(){
+
+	var objresult = '${objresult}';
+	let jsonresult = JSON.parse(objresult); 
+	
+	
+	let mycanvas = document.getElementById("mycanvas");
+	let pencil = mycanvas.getContext("2d");
+	
+	var myimage = new Image();
+	myimage.src= "http://localhost:8083/naverai/${param.image}"
+	
+	
+	// 이미지 크기 조절
+		mycanvas.width = myimage.width;
+		mycanvas.height = myimage.height;
+	 
+	myimage.onload = function(){
+		pencil.drawImage(myimage, 0,0, myimage.width, myimage.height);
+	
+		 for( var i = 0; i<jsonresult.predictions[0].num_detections; i++){
+		
+			var y1 = jsonresult.predictions[0].detection_boxes[i][0]*myimage.height;
+			var x1 = jsonresult.predictions[0].detection_boxes[i][1]*myimage.width;
+			var y2 = jsonresult.predictions[0].detection_boxes[i][2]*myimage.height;
+			var x2 = jsonresult.predictions[0].detection_boxes[i][3]*myimage.width;
+		
+ 		/* pencil.fillStyle="red"; 
+		pencil.fillRect( (x1+x2)/2, (y1+y2)/2, 10,10);
+ 		 */
+ 		var width = x2-x1; 
+ 		var height = y2-y1; 
+ 		
+  		pencil.strokeStyle = "red";
+ 		pencil.lineWidth = 1;
+ 		pencil.font="13px";
+ 		pencil.strokeRect(x1,y1,width, height);
+  
+ 		pencil.fillStyle="yellow";
+		pencil.fillText(jsonresult.predictions[0].detection_names[i], x1, y1);
+ 
+			} //for 
+		  
+	} // onload function
+	
+	
+	
+	
+});
+</script>
+
+
+
+</head>
+<body>
+
+<div id="here">여기</div>
+<img src="http://localhost:8083/naverai/${param.image}">
+<hr>
+
+
+<canvas id="mycanvas" width=500 height=500 style="border:2px solid yellow">
+</canvas>
+
+</body>
+</html>

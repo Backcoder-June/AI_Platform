@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
+@ComponentScan(basePackages = "tts")
+@ComponentScan(basePackages = "stt")
+@ComponentScan(basePackages = "object")
+@ComponentScan(basePackages = "pose")
 @ComponentScan(basePackages = "cfr")
 @ComponentScan
 @SpringBootApplication

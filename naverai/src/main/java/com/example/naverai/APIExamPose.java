@@ -16,7 +16,7 @@ public class APIExamPose {
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = Ninf.path + "song.jpg";
+            String imgFile = Ninf.path + "yuna3.jpg";
             File uploadFile = new File(imgFile);
             String apiURL = "https://naveropenapi.apigw.ntruss.com/vision-pose/v1/estimate"; // 사람 인식
             URL url = new URL(apiURL);

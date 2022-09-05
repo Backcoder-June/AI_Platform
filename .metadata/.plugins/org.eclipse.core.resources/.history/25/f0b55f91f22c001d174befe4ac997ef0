@@ -1,0 +1,48 @@
+package stt;
+
+import java.io.File;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.naverai.Ninf;
+
+@Controller
+public class SttController {
+	
+	@Autowired
+	SttService sttService; 
+		
+	@GetMapping("/sttinput")
+	public String poseinput(Model model) {
+		
+		File f = new File(Ninf.path);
+		String[] fileList = f.list();
+		
+		model.addAttribute("filelist", fileList);
+		
+		return "stt/sttinput"; 
+	}
+
+	@GetMapping("/sttresult")
+	public String poseresult(String image, String lang, Model model) {
+	
+		String sttresult = null;
+		if(lang == null) {
+			sttresult = sttService.test(image);
+		}else {
+			sttresult = sttService.test(image, lang); 
+		}
+		model.addAttribute("sttresult", sttresult);
+		
+		return "stt/sttresult";
+	}
+
+
+
+
+
+
+}

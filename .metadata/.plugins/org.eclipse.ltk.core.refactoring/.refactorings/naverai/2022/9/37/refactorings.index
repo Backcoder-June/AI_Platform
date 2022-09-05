@@ -1,0 +1,26 @@
+1662338106998	Rename type 'pose'
+1662338122189	Rename type 'poseController'
+1662338129631	Rename type 'poseService'
+1662339291896	Copy file
+1662346261176	Copy file
+1662352228256	Copy compilation units
+1662352239571	Rename type 'PoseController'
+1662352245655	Rename type 'PoseService'
+1662352483973	Copy folder
+1662352496739	Rename resource 'poseinput.jsp'
+1662352505409	Rename resource 'poseresult.jsp'
+1662352510516	Delete element
+1662359333697	Copy compilation units
+1662359346752	Rename type 'ObjController'
+1662359351881	Rename type 'ObjService'
+1662359528597	Copy files
+1662359544126	Rename resource 'objinput.jsp'
+1662359550521	Rename resource 'objresult.jsp'
+1662363878182	Rename type 'APIExamtts'
+1662365585208	Copy compilation units
+1662365596408	Rename type 'SttController'
+1662365605791	Rename type 'ttsController'
+1662365613705	Rename type 'SttService'
+1662366840247	Copy folder
+1662366847553	Rename resource 'sttinput.jsp'
+1662366853382	Rename resource 'sttresult.jsp'
