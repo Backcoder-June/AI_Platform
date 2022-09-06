@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js" ></script>
+<script>
+$(document).ready(function(){
+	var ocr = '${ocrresult}';
+	var jsoncr = JSON.parse(ocr);
+	
+	$("#text").html("텍스트 인식 결과 : <br>"); 
+	for(var a = 0; a<jsoncr.images[0].fields.length; a++){
+	$("#text").append(jsoncr.images[0].fields[a].inferText); 
+	}
+	
+	
+	
+	var mycanvas = document.getElementById("mycanvas");
+	var pencil = mycanvas.getContext("2d");
+	var myimage = new Image(); 
+	myimage.src = "/naverai/${param.textimage}";
+	myimage.onload = function(){
+		pencil.drawImage(myimage,0,0, myimage.width, myimage.height);
+	} // onload 
+	
+});
+</script>
+
+</head>
+<body>
+<canvas id="mycanvas" width=600 height=600 style="border:2px solid yellow"></canvas>
+
+${param.textimage} 파일에서 다음과 같은 텍스트를 읽어왔습니다.<br> 
+<h3 id="text" style="border:2px solid silver"></h3>
+
+
+
+
+</body>
+</html>
+

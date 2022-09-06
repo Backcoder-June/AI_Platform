@@ -1,0 +1,11 @@
+package com.example.naverai;
+
+public class MapService implements NaverService {
+
+	@Override
+	public String test(String image) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

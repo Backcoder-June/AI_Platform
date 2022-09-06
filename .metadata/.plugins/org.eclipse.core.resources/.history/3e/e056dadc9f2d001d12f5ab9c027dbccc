@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+
+<video id="camera-view" autoplay playsinline></video>
+<button id="camera-btn">사진촬영</button>
+<canvas id="camera-output"></canvas>
+<a id="camera-save"></a>
+
+<script>
+var cameraView = document.getElementById("camera-view");
+var cameraBtn = document.getElementById("camera-btn");
+var cameraOutput = document.getElementById("camera-output");
+var cameraSave = document.getElementById("camera-save");
+
+// 비디오 유저 / 오디오 사용안함 
+var constraint = '{video:{facingMode:"user"}, audio:false}';
+window.onload = function(){
+	navigator.mediaDevices.getUserMedia(constraint)
+	.then(function(stream){cameraView.srcObjet=stream;})
+	.catch(function(err){console.log("카메라 문제 발생", err);})
+}
+
+cameraBtn.onclick = function(){
+	cameraOutput.width = cameraView.videoWidth;
+	cameraOutput.height = cameraView.videoHeight;
+	
+	var pencil = cameraOutput.getContext("2d");
+	pencil.drawImage(cameraView,0,0); // 스샷으로 복사완료
+	
+	// 파일로 저장 
+	cameraOutput.toBlob(function(blob){
+		var imageurl = URL.createObjectURL(blob);  //blob 받아서 => url 형태로 전환 
+		
+		// <a 태그에 속성주기 : url 바꾼거로 주고, 다운로드되게 설정 > 
+		cameraSave.href = imageurl; 
+		cameraSave.download = "scshot.png";
+		cameraSave.innerHTML = "캡쳐";
+	});//toBLob
+	
+}//onclick
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

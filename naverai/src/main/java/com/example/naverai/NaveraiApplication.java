@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
+@ComponentScan(basePackages = "mapchat")
+@ComponentScan(basePackages = "ocr")
 @ComponentScan(basePackages = "tts")
 @ComponentScan(basePackages = "stt")
 @ComponentScan(basePackages = "object")

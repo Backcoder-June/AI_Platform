@@ -1,0 +1,51 @@
+package mapchat;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.naverai.Ninf;
+
+@Controller
+public class MapController {
+	
+	@Autowired
+	MapService mapService;
+	
+	@GetMapping("/mapinput")
+	public String mapinput() {
+		return "map/mapinput";
+	}
+	
+	@ResponseBody
+	@GetMapping("/mapresult")
+	public String mapresult(String text, String speaker) throws IOException {
+		String response = mapService.map.get(text);
+		if(response==null) {
+			response = "무슨말인 지 모르겠어요";
+		}
+		
+		FileWriter fw = new FileWriter(Ninf.path + "response.txt");
+		fw.write(response); 
+		fw.close();
+
+		String mp3 = null;
+		
+		if(speaker == null) {
+			mp3 = mapService.test(Ninf.path + "response.txt");
+		}else {
+			mp3 = mapService.test(Ninf.path + "response.txt", speaker);
+		}
+		
+
+		return "{\"mp3\" : \"" + mp3+ "\", \"result2\" : \"" + response + "\" }";
+	}
+	
+	
+
+}

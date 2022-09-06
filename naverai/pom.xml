@@ -18,7 +18,16 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
-		
+
+
+<!-- ocr용 json 라이브러리  -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20220320</version>
+</dependency>
+
+
 		
 		<!-- for jsp -->
 	<dependency>

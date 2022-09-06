@@ -1,0 +1,27 @@
+package com.example.naverai;
+
+import java.util.HashMap;
+
+public class MapService implements NaverService {
+	
+	
+	HashMap<String, String> map = new HashMap<>();
+	
+	public MapService() {
+		map.put("이름이 뭐니", "네이버 클로버야");
+		map.put("이름이 뭐니", "네이버 클로버야");
+		map.put("이름이 뭐니", "네이버 클로버야");
+		map.put("이름이 뭐니", "네이버 클로버야");
+	}
+	
+
+	@Override
+	public String test(String request) {
+		String response = map.get(request);
+		
+		if(response == null) {
+			return "무슨말인지 모르겠어요.";
+		}
+		return response;
+	}
+}

@@ -1,0 +1,41 @@
+package mapchat;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MapController {
+	
+	@Autowired
+	MapService mapService;
+	
+	@GetMapping("/mapinput")
+	public String mapinput() {
+		return "map/mapinput";
+	}
+	
+	@GetMapping("/mapresult")
+	public String mapresult(String text, String speaker, Model model) {
+		
+		String mp3 = null;
+		
+		if(speaker == null) {
+			mp3 = mapService.test(text);
+		}else {
+			mp3 = mapService.test(text, speaker);
+		}
+
+		model.addAttribute("mapresult", mp3);
+
+		
+		
+		
+		
+		return "map/mapresult";
+	}
+	
+	
+
+}

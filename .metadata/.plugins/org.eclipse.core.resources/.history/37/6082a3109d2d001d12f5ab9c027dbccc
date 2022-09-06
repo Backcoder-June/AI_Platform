@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	var mycanvas = $("#mycanvas")[0];
+	var pencil = mycanvas.getContext("2d");	
+
+	var myimage = new Image(); 
+	myimage.src = "http://localhost:8083/naverai/yuna1.png"; 
+	myimage.onload = function(){
+		pencil.drawImage(myimage,0,0,myimage.width, myimage.height); /* 사진 불러오기 */
+		pencil.lineWidth = 3; 
+		pencil.strokeStyle = "orange"; 
+		pencil.strokeRect(40,50,200,230);
+	
+		// 글씨 쓰기 
+		pencil.font = "20px serif"; 
+		pencil.fillStyle = "pink";
+		pencil.fillText("빛연아", 10, 50, 50, 50);
+		//pencil.fillRect(40,50,200,230);
+		
+	
+	} // onload
+	
+	
+	
+});//ready
+
+</script>
+
+
+</head>
+<body>
+
+<canvas id="mycanvas" width=500 height=500 style="border:2px solid olive">
+</canvas>
+
+
+</body>
+</html>
