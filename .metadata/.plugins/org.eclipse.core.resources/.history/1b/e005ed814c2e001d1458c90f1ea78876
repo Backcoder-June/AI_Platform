@@ -1,0 +1,16 @@
+package com.example.naverai;
+
+public class ChatbotProc {
+
+	public void main(String args[]) {}
+
+
+	  public static String main(String voiceMessage, String apiURL, String secretKey) {
+
+	
+	public static String makeSignature(String message, String secretKey) {
+
+		public static String getReqMessage(String voiceMessage) {
+
+
+}

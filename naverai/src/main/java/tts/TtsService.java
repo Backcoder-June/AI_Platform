@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -41,6 +42,15 @@ public class TtsService implements NaverService{
 	     String clientId = Ninf.voice_id;//애플리케이션 클라이언트 아이디값";
 	     String clientSecret = Ninf.voice_key;//애플리케이션 클라이언트 시크릿값";
 	     try {
+	    	
+	    	 // 텍스트 => 파일 만들기 
+	    	 String input = image;
+	    	 FileWriter fw = new FileWriter(Ninf.path + image);
+	    	 fw.write(input); 
+	    	 fw.close();
+
+	    	 
+	    	 
 	    	 
 	    	 // 파일 읽어오기 => text로 넣기 
 	    	 String mytext = "";

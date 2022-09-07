@@ -1,0 +1,34 @@
+package chatbot;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.naverai.Ninf;
+
+@Controller
+public class ChatbotController {
+	
+	@Autowired
+	ChatbotService chatbotService;
+	
+	@GetMapping("/mapinput")
+	public String mapinput() {
+		return "map/mapinput";
+	}
+	
+	@ResponseBody
+	@GetMapping("/mapresult")
+	public String mapresult(String text, String speaker) throws IOException {
+	
+		return "{\"mp3\" : \"" +  "\", \"result2\" : \"" + "\" }";
+	}
+	
+	
+
+}

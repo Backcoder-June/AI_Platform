@@ -1,0 +1,42 @@
+package chatbot;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.naverai.Ninf;
+
+@Controller
+public class ChatbotController {
+	
+	@Autowired
+	ChatbotService chatbotService;
+	
+	@GetMapping("/chatinput")
+	public String chatinput() {
+		return "chat/chatinput";
+	}
+	
+	@GetMapping("/chatresult")
+	public String chatresult(String request, String event, Model model){
+	
+		String response = "";
+		if(event.equals("대화입력")) {
+			response = chatbotService.test(request, "send");
+		}else {
+			response = chatbotService.test(request, "open");
+			}
+		
+		model.addAttribute("response", response); 
+		
+		return "chat/chatresult";
+	}
+	
+	
+
+}

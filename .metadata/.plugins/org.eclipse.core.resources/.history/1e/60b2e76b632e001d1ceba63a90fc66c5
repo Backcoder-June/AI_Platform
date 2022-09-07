@@ -1,0 +1,75 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js" ></script>
+<script>
+$(document).ready(function(){
+
+	$("#event1").on("click", function(){
+	$.ajax({
+			url : 'chatresult',
+			type : 'get',
+			dataType : 'json',	
+			data : {'request' : $("#request").val(), 'event' : $("#event1").val()},
+			
+			success : function(resp){
+				//alert(resp.bubbles[0].data.description);
+				
+			$("#response").append($("#request").val()+ "<br>"); 
+			$("#response").append(resp.bubbles[0].data.description + "<br>"); 
+				
+				
+			}
+	
+	
+}); // ajax 	
+	
+	}); // onclick
+	$("#event2").on("click", function(){
+		$.ajax({
+				url : 'chatresult',
+				type : 'get',
+				dataType : 'json',	
+				data : {'request' : $("#request").val(), 'event' : $("#event2").val()},
+				
+				success : function(resp){
+					//alert(resp.bubbles[0].data.description);
+				$("#response").append(resp.bubbles[0].data.description + "<br>"); 
+					
+					
+				}
+		
+		
+	}); // ajax 	
+		
+		}); // onclick 
+		
+	
+	
+});
+</script>
+</head>
+<body>
+
+<form action="chatresult">
+
+대화입력 : <input type=text name="request" id="request"> 
+<input type="button" value="대화입력" name="event" id="event1">
+<input type="button" value="인사" name="event" id="event2">
+
+
+</form>
+
+<div id="response" style="border : 2px solid orange" width =500 height=500 >
+</div>
+
+
+</body>
+</html>
