@@ -1,0 +1,32 @@
+package chatbot;
+
+public class ChickenDTO {
+	private String kind; 
+	private String size; 
+	private int telnum;
+	private int price; 
+	
+	
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
+	public int getTelnum() {
+		return telnum;
+	}
+	public void setTelnum(int telnum) {
+		this.telnum = telnum;
+	}
+	
+	
+	
+
+}

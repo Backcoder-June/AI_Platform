@@ -1,0 +1,77 @@
+package chatbot;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.naverai.Ninf;
+
+import tts.TtsService;
+
+@Controller
+public class ChickenController {
+	
+	@Autowired
+	ChatbotService chatbotService;
+	
+	@Autowired
+	TtsService ttsService; 
+
+	
+	@GetMapping("/chickeninput")
+	public String chatinput() {
+		return "chatbot/chickeninput";
+	}
+	
+	@ResponseBody
+	@GetMapping("/chickenresult")
+	public String chatresult(String request, String event, Model model){
+	
+		String response = "";
+		if(event.equals("대화입력")) {
+			response = chatbotService.test(request, "send");
+		}else {
+			response = chatbotService.test(request, "open");
+			}
+	
+		System.out.println(response);
+		
+		ChickenDTO testdto = new ChickenDTO("양념치킨", "한마리반",01039392828,10000);
+		
+		
+		return response;
+	}
+
+	@ResponseBody
+	@GetMapping("/chickenvoice")
+	public String chatvoice(String textresult, Model model){
+		System.out.println("textresult : " + textresult);
+		String mp3 = ttsService.test(textresult);
+		System.out.println("mp3: " + mp3);
+		return "{\"resultmp\" : \"" + mp3 + "\" }";
+
+	}
+
+	@ResponseBody
+	@GetMapping("/chickenprice")
+	public ChickenDTO chickprice(String kind, String size, String telnum) {
+		
+		String[] menu = {"후라이드", "양념치킨", "간장치킨", "반반치킨"}; 
+		int[] price = {5900, 6900, 7900, 6900 };
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+	
+	
+
+}

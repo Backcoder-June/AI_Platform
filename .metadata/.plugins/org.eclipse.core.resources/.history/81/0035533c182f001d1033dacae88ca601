@@ -1,0 +1,10 @@
+package chatbot;
+
+public class ChickenDTO {
+	
+	private String kind; 
+	private String size; 
+	private int telnum; 
+	
+
+}

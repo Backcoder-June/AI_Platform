@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+<!-- 패키지명 알리아스 주기 -->
+
+<typeAliases>
+	<typeAlias type="member.MemberDTO" alias="memberdto"/>
+	<typeAlias type="board.BoardDTO" alias="boarddto"/>
+	<typeAlias type="comment.CommentDTO" alias="commentDTO"/>
+</typeAliases>
+
+
+</configuration>
